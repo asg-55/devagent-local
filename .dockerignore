@@ -1,10 +1,12 @@
 .git
 .agents
 .codex
+.github
 .devagent
 projects
 __pycache__
 *.pyc
 legacy
+LICENSE
 README.md
 start_agent.bat
