@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.devagent/
+projects/
+legacy/
+.agents/
+.codex/
+.env
+.venv/
+venv/
+node_modules/
+dist/
+build/
+*.log

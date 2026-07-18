@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevAgent Local</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body data-default-model="{{ default_model }}">
+  <header class="topbar">
+    <div>
+      <strong class="logo">DevAgent</strong>
+      <span class="badge">local</span>
+    </div>
+    <div class="status" id="status">Подключение…</div>
+    <label class="model-control">Модель <select id="model"></select></label>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      <span>Проекты</span>
+      <button class="icon-button" id="new-project" title="Новый проект">+</button>
+    </div>
+    <div id="projects" class="project-list"></div>
+    <div class="sidebar-title files-heading"><span>Файлы</span></div>
+    <div id="files" class="file-list"><span class="muted">Выберите проект</span></div>
+  </aside>
+
+  <main class="main">
+    <section id="empty" class="empty-state">
+      <h1>Локальный агент разработки</h1>
+      <p>Создайте проект, затем опишите сайт или нужное изменение.</p>
+      <button class="primary" id="empty-create">Создать первый проект</button>
+    </section>
+
+    <section id="workspace" class="workspace hidden">
+      <div class="project-header">
+        <div><span class="eyebrow">Текущий проект</span><h1 id="project-title"></h1></div>
+        <button id="preview" class="secondary" disabled>Открыть сайт</button>
+      </div>
+      <div id="chat" class="chat"></div>
+      <form id="composer" class="composer">
+        <textarea id="message" rows="2" placeholder="Например: создай современный сайт доставки суши…" required></textarea>
+        <button class="primary" id="send" type="submit">Запустить</button>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="project-dialog">
+    <form id="project-form" method="dialog">
+      <h2>Новый проект</h2>
+      <label>Название<input id="new-title" maxlength="120" placeholder="Сайт кофейни" required></label>
+      <label>Папка<input id="new-slug" pattern="[a-z0-9][a-z0-9_-]{0,62}" placeholder="coffee_shop" required></label>
+      <p id="dialog-error" class="error"></p>
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary">Отмена</button>
+        <button id="create-project" value="default" class="primary">Создать</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
+

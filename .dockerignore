@@ -1,0 +1,10 @@
+.git
+.agents
+.codex
+.devagent
+projects
+__pycache__
+*.pyc
+legacy
+README.md
+start_agent.bat
